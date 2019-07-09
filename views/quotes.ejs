@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body class="body">
+    <div class="container mt-5">
+		<p class="h2 text-center">Here are the awesome Quotes!</p>
+		<div class="container mt-5 border border-dark rounded overflow-auto height">
+			<div class="row justify-content-center pt-5">
+				<% for (var i in quotes) {%>
+				<div class="container">
+					<p class="text-danger text-center">"<%= quotes[i].quote %>"</p>
+				</div>
+				<p class="text-center"><%= quotes[i].name %> at <%= quotes[i].createdAt %></p>
+				<%} %>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

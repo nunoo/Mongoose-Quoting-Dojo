@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body class="body">
+    <div class="container border border-dark mt-5 rounded">
+		<!-- tip to easily see objects printed in full instead of [object Object] -->
+		<% JSON.stringify(messages) %>
+		<!-- based on the structure of your messages, determine how to display them -->
+		<% if(messages.reg) { %>
+		<% for (var x of messages.reg) { %>
+		<p class="text-danger"><%= x %></p>
+		<% } %>
+		<% } %>
+		<form action="/quotes/process" method="POST">
+			<div class="form-group">
+				<label for="" class="pt-3">Name</label>
+				<input name="name" type="text" class="form-control" placeholder="Name">
+			</div>
+			<div class="form-group">
+				<label for="">Quote</label>
+				<textarea name="quote" type="text" class="form-control" placeholder="Quote goes here!"></textarea>
+			</div>
+			<div class="row text-center justify-content-center">
+				<input type="submit" class="btn btn-primary pl-5 pr-5 mr-2  mt-2 mb-4" value="Add my Quote">
+				<a href="/quotes" class="btn btn-primary pl-5 pr-5 ml-2 mt-2 mb-4">Skip to Quotes</a>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>
